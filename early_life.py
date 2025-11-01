@@ -9,95 +9,140 @@ def get_base64_image(image_path):
 
 st.header("Early Life")
 
+
 # Create tabs for different sections
-tab1, tab2, tab3 = st.tabs(["👨‍👩‍👧‍👦 Family Tree", "📸 Memories", "📅 Timeline"])
+tab1, tab2, tab3 = st.tabs(["Family Tree", "Memories", "Timeline"])
 
 with tab1:
     st.subheader("My Family Tree")
 
-    nodes = []
-    edges = []
+    # Create two columns: left for info cards, right for graph
+    col1, col2 = st.columns([1, 2])
 
-    # Create the nodes (people)
-    nodes.append( Node(id="Grandma",
-                       label="Grandma",
-                       size=35,
-                       shape="circularImage",
-                       image=get_base64_image("resource/grandmama.jpg")) )
+    with col1:
+        st.markdown("##### Family Members")
 
-    nodes.append( Node(id="Grandpa",
-                       label="Grandpa",
-                       size=35,
-                       shape="circularImage",
-                       image=get_base64_image("resource/pops.jpg")) )
+        # Card for Grandparents
+        with st.container(border=True):
+            st.markdown("** Grandma**")
+            st.image("resource/grandmama.jpg", width=120)
+            st.write("Matriarch of the family")
+            st.caption("Generation: 1st")
 
-    nodes.append( Node(id="Dad",
-                       label="Dad",
-                       size=35,
-                       shape="circularImage",
-                       image=get_base64_image("resource/dad.jpg")) )
+        with st.container(border=True):
+            st.markdown("** Grandpa**")
+            st.image("resource/pops.jpg", width=120)
+            st.write("Patriarch of the family")
+            st.caption("Generation: 1st")
 
-    nodes.append( Node(id="Mom",
-                       label="Mom",
-                       size=35,
-                       shape="circularImage",
-                       image=get_base64_image("resource/mom.jpg")) )
+        # Card for Parents
+        with st.container(border=True):
+            st.markdown("** Dad**")
+            st.image("resource/dad.jpg", width=120)
+            st.write("My father")
+            st.caption("Generation: 2nd")
 
-    nodes.append( Node(id="Me",
-                       label="Me",
-                       size=35,
-                       shape="circularImage",
-                       image=get_base64_image("resource/me.jpg")) )
+        with st.container(border=True):
+            st.markdown("** Mom**")
+            st.image("resource/mom.jpg", width=120)
+            st.write("My mother")
+            st.caption("Generation: 2nd")
 
-    nodes.append( Node(id="eldest",
-                       label="Eldest",
-                       size=35,
-                       shape="circularImage",
-                       image=get_base64_image("resource/eldest.jpg")) )
+        # Card for Me
+        with st.container(border=True):
+            st.markdown("** Me**")
+            st.image("resource/me.jpg", width=120)
+            st.write("Me")
+            st.caption("Generation: 3rd")
 
-    nodes.append( Node(id="middle",
-                       label="Middle",
-                       size=35,
-                       shape="circularImage",
-                       image=get_base64_image("resource/middle.jpg")) )
+        # Card for Siblings
+        with st.container(border=True):
+            st.markdown("** Eldest**")
+            st.image("resource/eldest.jpg", width=120)
+            st.write("First sibling")
+            st.caption("Generation: 3rd")
 
-    nodes.append( Node(id="erika",
-                       label="Youngest",
-                       size=35,
-                       shape="circularImage",
-                       image=get_base64_image("resource/youngest.jpg")) )
+        with st.container(border=True):
+            st.markdown("** Middle**")
+            st.image("resource/middle.jpg", width=120)
+            st.write("Second sibling")
+            st.caption("Generation: 3rd")
 
+        with st.container(border=True):
+            st.markdown("** Youngest**")
+            st.image("resource/youngest.jpg", width=120)
+            st.write("Third sibling")
+            st.caption("Generation: 3rd")
 
-    # Create the edges (relationships)
-    edges.append( Edge(source="Grandma", target="Dad") )
-    edges.append( Edge(source="Grandpa", target="Dad") )
-    edges.append( Edge(source="Mom", target="erika") )
-    edges.append( Edge(source="Mom", target="Dad") )
-    edges.append( Edge(source="Mom", target="Me") )
-    edges.append( Edge(source="Mom", target="eldest") )
-    edges.append( Edge(source="Mom", target="middle") )
+    with col2:
+        st.markdown("##### Interactive Family Graph")
 
-    # 1. Build the config
-    config = Config(height=600,
-                    directed=True, # Shows the direction of the relationship
-                    physics=False,
-                    hierarchical=True, # This is the key!
-                    )
+        nodes = []
+        edges = []
 
-    # 2. Render the graph (full width)
-    agraph(nodes=nodes, edges=edges, config=config)
+        # Create the nodes (people)
+        nodes.append( Node(id="Grandma",
+                           label="Grandma",
+                           size=35,
+                           shape="circularImage",
+                           image=get_base64_image("resource/grandmama.jpg")) )
 
-with tab2:
-    st.subheader("Childhood Memories")
-    st.write("Coming soon: Photos and stories from my childhood...")
-    # Add your childhood photos/memories here
-    # Example: st.image("resource/childhood.jpg", caption="My first day at school")
+        nodes.append( Node(id="Grandpa",
+                           label="Grandpa",
+                           size=35,
+                           shape="circularImage",
+                           image=get_base64_image("resource/pops.jpg")) )
 
-with tab3:
-    st.subheader("Life Timeline")
-    st.write("Coming soon: Key milestones and events...")
-    # Add your timeline content here
-    # Example:
-    # st.write("🎂 2003 - Born")
-    # st.write("📚 2009 - Started elementary school")
+        nodes.append( Node(id="Dad",
+                           label="Dad",
+                           size=35,
+                           shape="circularImage",
+                           image=get_base64_image("resource/dad.jpg")) )
 
+        nodes.append( Node(id="Mom",
+                           label="Mom",
+                           size=35,
+                           shape="circularImage",
+                           image=get_base64_image("resource/mom.jpg")) )
+
+        nodes.append( Node(id="Me",
+                           label="Me",
+                           size=35,
+                           shape="circularImage",
+                           image=get_base64_image("resource/me.jpg")) )
+
+        nodes.append( Node(id="eldest",
+                           label="Eldest",
+                           size=35,
+                           shape="circularImage",
+                           image=get_base64_image("resource/eldest.jpg")) )
+
+        nodes.append( Node(id="middle",
+                           label="Middle",
+                           size=35,
+                           shape="circularImage",
+                           image=get_base64_image("resource/middle.jpg")) )
+
+        nodes.append( Node(id="erika",
+                           label="Youngest",
+                           size=35,
+                           shape="circularImage",
+                           image=get_base64_image("resource/youngest.jpg")) )
+
+        # Create the edges (relationships)
+        edges.append( Edge(source="Grandma", target="Dad") )
+        edges.append( Edge(source="Grandpa", target="Dad") )
+        edges.append( Edge(source="Mom", target="erika") )
+        edges.append( Edge(source="Mom", target="Dad") )
+        edges.append( Edge(source="Mom", target="Me") )
+        edges.append( Edge(source="Mom", target="eldest") )
+        edges.append( Edge(source="Mom", target="middle") )
+
+        config = Config(height=600,
+                        directed=True,
+                        physics=False,
+                        hierarchical=True,
+                        )
+
+        # Render the graph
+        agraph(nodes=nodes, edges=edges, config=config)
