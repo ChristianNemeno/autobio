@@ -9,6 +9,54 @@ def get_base64_image(image_path):
 
 st.header("Early Life")
 
+# Add CSS for scrollable column
+st.markdown("""
+    <style>
+    /* Fit page content to viewport */
+    section.main {
+        padding-top: 1rem !important;
+        padding-bottom: 0 !important;
+    }
+    
+    /* Make the first column scrollable with fixed height */
+    div.stColumn:first-child div[data-testid="stVerticalBlock"] {
+        max-height: calc(100vh - 200px) !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        padding-right: 10px;
+    }
+    
+    /* Make containers compact and flexbox-like */
+    div.stColumn:first-child div[data-testid="stLayoutWrapper"] {
+        max-width: 250px !important;
+        margin: 0 auto !important;
+    }
+    
+    div.stColumn:first-child div[data-testid="stLayoutWrapper"] div[data-testid="stVerticalBlock"] {
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    
+    /* Custom scrollbar styling */
+    div.stColumn:first-child div[data-testid="stVerticalBlock"]::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    div.stColumn:first-child div[data-testid="stVerticalBlock"]::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+    
+    div.stColumn:first-child div[data-testid="stVerticalBlock"]::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+    
+    div.stColumn:first-child div[data-testid="stVerticalBlock"]::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # Create tabs for different sections
 tab1, tab2, tab3 = st.tabs(["Family Tree", "Memories", "Timeline"])
@@ -138,7 +186,12 @@ with tab1:
         edges.append( Edge(source="Mom", target="eldest") )
         edges.append( Edge(source="Mom", target="middle") )
 
-        config = Config(height=600,
+        # Calculate dynamic height based on viewport
+        # Using st.components to inject JavaScript for viewport height would be complex
+        # So we'll use a reasonable fixed height that works well
+        graph_height = 550  # Adjusted to fit within viewport with headers
+
+        config = Config(height=graph_height,
                         directed=True,
                         physics=False,
                         hierarchical=True,
