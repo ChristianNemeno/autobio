@@ -4,8 +4,8 @@ import numpy as np
 
 
 st.set_page_config(
-    page_title="Header Nav App",
-    page_icon="🧭",
+    page_title="Assignment sa DAV",
+    page_icon=":material/favorite:",
     layout="wide"
 )
 
@@ -13,7 +13,7 @@ st.set_page_config(
 
 # pages
 pages = [
-    st.Page("preface.py", title="Homee", icon=":material/login:"),
+    st.Page("preface.py", title="preface", icon=":material/account_circle:"),
     st.Page("page2.py", title="Projects", icon=":material/login:"),
     st.Page("page3.py", title="About me", icon=":material/login:")
 

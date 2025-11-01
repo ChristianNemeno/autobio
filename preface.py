@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.write("page 1")
+st.title("_Hate_ is a place where a man who can't stand :red[sadness] goes")
