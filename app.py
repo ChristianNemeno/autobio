@@ -14,7 +14,7 @@ st.set_page_config(
 # pages
 pages = [
     st.Page("intro.py", title="preface", icon=":material/account_circle:"),
-    st.Page("page2.py", title="Projects", icon=":material/login:"),
+    st.Page("early_life.py", title="early life", icon=":material/history:"),
     st.Page("page3.py", title="About me", icon=":material/login:")
 
 ]
