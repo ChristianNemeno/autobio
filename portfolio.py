@@ -220,17 +220,17 @@ proj_col1, proj_col2 = st.columns(2)
 
 with proj_col1:
     with st.container(border=True):
-        st.image("https://via.placeholder.com/400x250.png?text=Project+1+Screenshot", use_container_width=True)
+        st.image("resource/dxd.jpg", use_container_width=False)
 
-        st.markdown("#### Project Title 1")
-        st.write("Brief description of your project. Explain what it does, the problem it solves, and key features implemented.")
+        st.markdown("#### Animedia REST API")
+        st.write("Using the built in auth in django, and the Django REST framework dependency, I explored how django backend works, other details , I used JWT for user sessions and tokens (IDK WHY When i couldve just used django built in auth)")
 
         st.markdown("**Tech Stack:**")
         tech_col1, tech_col2, tech_col3 = st.columns(3)
         with tech_col1:
             st.markdown("![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)")
         with tech_col2:
-            st.markdown("![Flask](https://img.shields.io/badge/Flask-000000?style=flat&logo=flask&logoColor=white)")
+            st.markdown("![Django](https://img.shields.io/badge/Django-092E20?style=flat&logo=django&logoColor=white)")
         with tech_col3:
             st.markdown("![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)")
 
@@ -238,25 +238,25 @@ with proj_col1:
 
         with st.expander("▸ View Details"):
             st.markdown("**Key Features:**")
-            st.write("• Feature 1 - Description")
-            st.write("• Feature 2 - Description")
-            st.write("• Feature 3 - Description")
+            st.write("• Basic GET api  - Fetches data in database for anime information")
+            st.write("• Basic POST api - Can make an anime record")
+            st.write("• Basic Update and Delete - Delete and update anime record")
 
             st.markdown("**Challenges & Solutions:**")
-            st.write("Describe a technical challenge you faced and how you solved it.")
+            st.write("I hated Python type inference")
 
             btn_col1, btn_col2 = st.columns(2)
             with btn_col1:
-                st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername/project1)")
+                st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ChristianNemeno/animedia_api.git)")
             with btn_col2:
-                st.markdown("[![Demo](https://img.shields.io/badge/Live_Demo-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://your-demo-link.com)")
+                st.markdown("[![Demo](https://img.shields.io/badge/Live_Demo-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://youtube.com/shorts/KJbwEah5gQE?si=GRmmT-Y2Ec4AFC5h)")
 
 with proj_col2:
     with st.container(border=True):
-        st.image("https://via.placeholder.com/400x250.png?text=Project+2+Screenshot", use_container_width=True)
+        st.image("resource/karenderya.png", use_container_width=True)
 
-        st.markdown("#### Project Title 2")
-        st.write("Brief description of your second project. Highlight what makes this project unique or interesting.")
+        st.markdown("#### Karenderya site")
+        st.write("A react + vite prototype for a eatery")
 
         st.markdown("**Tech Stack:**")
         tech_col1, tech_col2, tech_col3 = st.columns(3)
@@ -271,60 +271,60 @@ with proj_col2:
 
         with st.expander("▸ View Details"):
             st.markdown("**Key Features:**")
-            st.write("• Feature 1 - Description")
-            st.write("• Feature 2 - Description")
-            st.write("• Feature 3 - Description")
+            st.write("• Static website - predefined everything")
+            st.write("• Can search using filter tools")
+            st.write("• Navigation  - used react router dom")
 
             st.markdown("**Challenges & Solutions:**")
-            st.write("Describe a technical challenge you faced and how you solved it.")
+            st.write("React hooks lol")
 
             btn_col1, btn_col2 = st.columns(2)
             with btn_col1:
-                st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername/project2)")
+                st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ChristianNemeno/karenderia_ordering_site.git)")
             with btn_col2:
-                st.markdown("[![Demo](https://img.shields.io/badge/Live_Demo-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://your-demo-link.com)")
+                st.markdown("[![Demo](https://img.shields.io/badge/Live_Demo-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://youtube.com/shorts/KJbwEah5gQE?si=GRmmT-Y2Ec4AFC5h)")
 
 proj_col1, proj_col2 = st.columns(2)
 
 with proj_col1:
     with st.container(border=True):
-        st.image("https://via.placeholder.com/400x250.png?text=Project+3+Screenshot", use_container_width=True)
+        st.image("resource/rem.png", use_container_width=True)
 
-        st.markdown("#### Project Title 3")
-        st.write("Brief description of your third project. Mention any awards or recognition if applicable.")
+        st.markdown("#### What Remains")
+        st.write("A visual novel from scratch built using Java core, and JavaFX for UI")
 
         st.markdown("**Tech Stack:**")
         tech_col1, tech_col2, tech_col3 = st.columns(3)
         with tech_col1:
-            st.markdown("![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)")
+            st.markdown("![Java](https://img.shields.io/badge/Java-007396?style=flat&logo=openjdk&logoColor=white)")
         with tech_col2:
-            st.markdown("![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)")
+            st.markdown("![JavaFX](https://camo.githubusercontent.com/74b3f60f771039c9f1d0426fab375fbb3855168361c03e49845937a44cc582fc/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6a61766166782d2532334646303030302e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d6a6176616678266c6f676f436f6c6f723d7768697465)")
         with tech_col3:
-            st.markdown("![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)")
+            st.markdown("![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)")
 
-        st.caption(" Completed: August 2024")
+        st.caption(" Completed: May 2025")
 
         with st.expander("▸ View Details"):
             st.markdown("**Key Features:**")
-            st.write("• Feature 1 - Description")
-            st.write("• Feature 2 - Description")
-            st.write("• Feature 3 - Description")
+            st.write("• Flexible Save System ")
+            st.write("• Dialogue Log ")
+            st.write("• Auto-Play Mode ")
 
             st.markdown("**Challenges & Solutions:**")
-            st.write("Describe a technical challenge you faced and how you solved it.")
+            st.write("Design patterns , event system and state pattern")
 
             btn_col1, btn_col2 = st.columns(2)
             with btn_col1:
-                st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername/project3)")
+                st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/BenJosephEscolano/CSIT228Capstone.git)")
             with btn_col2:
-                st.markdown("[![Demo](https://img.shields.io/badge/Live_Demo-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://your-demo-link.com)")
+                st.markdown("[![Demo](https://img.shields.io/badge/Live_Demo-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://youtube.com/shorts/KJbwEah5gQE?si=GRmmT-Y2Ec4AFC5h)")
 
 with proj_col2:
     with st.container(border=True):
-        st.image("https://via.placeholder.com/400x250.png?text=Project+4+Screenshot", use_container_width=True)
+        st.image("resource/tapcet.png", use_container_width=True)
 
-        st.markdown("#### Project Title 4")
-        st.write("Brief description of your fourth project. Explain the impact or results achieved.")
+        st.markdown("#### TAPCET")
+        st.write("TAPCET is basically a quiz app clone, with the goal of serving aspiring college scholars, with sets of review questions for the upcoming seasonal CETs")
 
         st.markdown("**Tech Stack:**")
         tech_col1, tech_col2, tech_col3 = st.columns(3)
@@ -333,24 +333,24 @@ with proj_col2:
         with tech_col2:
             st.markdown("![Spring](https://img.shields.io/badge/Spring-6DB33F?style=flat&logo=spring&logoColor=white)")
         with tech_col3:
-            st.markdown("![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)")
+            st.markdown("![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)")
 
-        st.caption("📅 Completed: July 2024")
+        st.caption(" Ongoing: November 2025")
 
         with st.expander("▸ View Details"):
             st.markdown("**Key Features:**")
-            st.write("• Feature 1 - Description")
-            st.write("• Feature 2 - Description")
-            st.write("• Feature 3 - Description")
+            st.write("• Quiz progress - Description")
+            st.write("• Quiz category - Description")
+            st.write("• Rapid review random - Description")
 
             st.markdown("**Challenges & Solutions:**")
-            st.write("Describe a technical challenge you faced and how you solved it.")
+            st.write("As a beginnner in java spring boot, dependency injection was quite confusing at first, hench this will be the last time ill be touching Java spring")
 
             btn_col1, btn_col2 = st.columns(2)
             with btn_col1:
                 st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername/project4)")
             with btn_col2:
-                st.markdown("[![Demo](https://img.shields.io/badge/Live_Demo-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://your-demo-link.com)")
+                st.markdown("[![Demo](https://img.shields.io/badge/Live_Demo-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://youtube.com/shorts/KJbwEah5gQE?si=GRmmT-Y2Ec4AFC5h)")
 
 st.markdown("---")
 
