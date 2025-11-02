@@ -145,13 +145,13 @@ with col3:
     with st.container(border=True):
 
         st.markdown("**Reading**")
-        st.caption("Tech & sci-fi books")
+        st.caption("Manhwa , Manga, Western Comics")
 
 with col4:
     with st.container(border=True):
 
         st.markdown("**Music**")
-        st.caption("Lo-fi & instrumental")
+        st.caption("J-Rock & OPM")
 
 st.divider()
 st.markdown("##### Recent Achievements")
@@ -167,7 +167,7 @@ with achievement_col1:
 
 with achievement_col2:
     with st.container(border=True):
-        st.markdown("#### 💡 Science Quiz bee")
+        st.markdown("####  Science Quiz bee")
         st.write("**Division level**")
         st.caption("Completed: October 2015")
         st.progress(1.0, text="Achievement Level: 100%")
