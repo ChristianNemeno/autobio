@@ -9,7 +9,6 @@ def get_base64_image(image_path):
 
 st.header("Early Life")
 
-# Add CSS for layout
 st.markdown("""
     <style>
     /* Tab content container - constrain height but allow internal scrolling */

@@ -34,6 +34,38 @@ st.markdown("""
         overflow: hidden !important;
         padding-top: 1rem !important;
         padding-bottom: 3rem !important;
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+    
+    /* Center all headers globally */
+    [data-testid="stHeading"] {
+        text-align: center !important;
+    }
+    
+    /* Center all markdown text globally */
+    [data-testid="stMarkdownContainer"] p {
+        text-align: center !important;
+    }
+    
+    /* Center images globally */
+    [data-testid="stImageContainer"] {
+        display: flex !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+    }
+    
+    /* Center dividers */
+    hr {
+        margin: 1rem auto !important;
+        max-width: 80% !important;
+    }
+    
+    /* Center columns container */
+    [data-testid="stHorizontalBlock"] {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
     
     /* Fixed Footer */
