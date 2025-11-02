@@ -13,7 +13,7 @@ st.markdown("""
     <style>
     /* Allow normal scrolling */
     .stMainBlockContainer.block-container {
-        padding-top: 1rem !important;
+        padding-top: 4rem !important;
         padding-bottom: 4rem !important;
         padding-left: 2rem !important;
         padding-right: 2rem !important;
@@ -88,7 +88,7 @@ st.markdown("""
 pages = [
     st.Page("intro.py", title="About me", icon=":material/account_circle:"),
     st.Page("early_life.py", title="Early life", icon=":material/history:"),
-    st.Page("page3.py", title="Portfolio", icon=":material/login:")
+    st.Page("portfolio.py", title="Portfolio", icon=":material/folder:")
 
 ]
 
@@ -98,7 +98,7 @@ pg.run()
 # Global Footer
 st.markdown("""
     <div class="global-footer">
-        <p>© 2025 | Data Visualization Project - CS 3rd Year | Created with ❤️ using Streamlit</p>
+        <p>© 2025 | Data Visualization Assignment - CS 3rd Year | Created with ❤️ using Streamlit</p>
     </div>
 """, unsafe_allow_html=True)
 

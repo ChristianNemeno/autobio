@@ -4,11 +4,11 @@ A personal autobiography web application built with Streamlit, showcasing my lif
 
 ## Features
 
-- 📝 **Introduction**: Personal profile with social links and interests
-- 🌳 **Family Tree**: Interactive visualization of family relationships
-- 🏡 **Early Life**: Information about birthplace and hometown
-- 🎓 **Education Journey**: Timeline of educational milestones
-- 🏆 **Achievements**: Academic and personal accomplishments
+-  **Introduction**: Personal profile with social links and interests
+-  **Family Tree**: Interactive visualization of family relationships
+-  **Early Life**: Information about birthplace and hometown
+-  **Education Journey**: Timeline of educational milestones
+-  **Achievements**: Academic and personal accomplishments
 
 ## Live Demo
 
