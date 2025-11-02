@@ -145,6 +145,14 @@ with col3:
     with st.container(border=True):
 
         st.markdown("**Reading**")
+        st.markdown(
+            """
+            <div style="text-align: center;">
+                <img src="https://cdn.simpleicons.org/webtoon/00D564" width="100">
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
         st.caption("Manhwa , Manga, Western Comics")
 
 with col4:
