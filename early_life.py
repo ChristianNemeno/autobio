@@ -237,14 +237,28 @@ with tab1:
 
     with gen1_col1:
         with st.container(border=True):
-            st.image("resource/grandmama.jpg", width=120)
+            st.markdown(
+                """
+                <div style="text-align: center;">
+                    <img src="data:image/jpeg;base64,{}" width="120">
+                </div>
+                """.format(get_base64_image("resource/grandmama.jpg").split(",")[1]),
+                unsafe_allow_html=True
+            )
             st.write("**Grandma**")
             st.write("Matriarch of the family")
             st.caption("Generation: 1st")
 
     with gen1_col2:
         with st.container(border=True):
-            st.image("resource/pops.jpg", width=120)
+            st.markdown(
+                """
+                <div style="text-align: center;">
+                    <img src="data:image/jpeg;base64,{}" width="120">
+                </div>
+                """.format(get_base64_image("resource/pops.jpg").split(",")[1]),
+                unsafe_allow_html=True
+            )
             st.write("**Grandpa**")
             st.write("Patriarch of the family")
             st.caption("Generation: 1st")
@@ -254,14 +268,28 @@ with tab1:
 
     with gen2_col1:
         with st.container(border=True):
-            st.image("resource/dad.jpg", width=120)
+            st.markdown(
+                """
+                <div style="text-align: center;">
+                    <img src="data:image/jpeg;base64,{}" width="120">
+                </div>
+                """.format(get_base64_image("resource/dad.jpg").split(",")[1]),
+                unsafe_allow_html=True
+            )
             st.write("**Dad**")
             st.write("My father")
             st.caption("Generation: 2nd")
 
     with gen2_col2:
         with st.container(border=True):
-            st.image("resource/mom.jpg", width=120)
+            st.markdown(
+                """
+                <div style="text-align: center;">
+                    <img src="data:image/jpeg;base64,{}" width="120">
+                </div>
+                """.format(get_base64_image("resource/mom.jpg").split(",")[1]),
+                unsafe_allow_html=True
+            )
             st.write("**Mom**")
             st.write("My mother")
             st.caption("Generation: 2nd")
@@ -271,28 +299,56 @@ with tab1:
 
     with gen3_col1:
         with st.container(border=True):
-            st.image("resource/me.jpg", width=120)
+            st.markdown(
+                """
+                <div style="text-align: center;">
+                    <img src="data:image/jpeg;base64,{}" width="120">
+                </div>
+                """.format(get_base64_image("resource/me.jpg").split(",")[1]),
+                unsafe_allow_html=True
+            )
             st.write("**Me**")
             st.write("Myself")
             st.caption("Generation: 3rd")
 
     with gen3_col2:
         with st.container(border=True):
-            st.image("resource/eldest.jpg", width=120)
+            st.markdown(
+                """
+                <div style="text-align: center;">
+                    <img src="data:image/jpeg;base64,{}" width="120">
+                </div>
+                """.format(get_base64_image("resource/eldest.jpg").split(",")[1]),
+                unsafe_allow_html=True
+            )
             st.write("**Eldest**")
             st.write("First sibling")
             st.caption("Generation: 3rd")
 
     with gen3_col3:
         with st.container(border=True):
-            st.image("resource/middle.jpg", width=120)
+            st.markdown(
+                """
+                <div style="text-align: center;">
+                    <img src="data:image/jpeg;base64,{}" width="120">
+                </div>
+                """.format(get_base64_image("resource/middle.jpg").split(",")[1]),
+                unsafe_allow_html=True
+            )
             st.write("**Middle**")
             st.write("Second sibling")
             st.caption("Generation: 3rd")
 
     with gen3_col4:
         with st.container(border=True):
-            st.image("resource/youngest.jpg", width=120)
+            st.markdown(
+                """
+                <div style="text-align: center;">
+                    <img src="data:image/jpeg;base64,{}" width="120">
+                </div>
+                """.format(get_base64_image("resource/youngest.jpg").split(",")[1]),
+                unsafe_allow_html=True
+            )
             st.write("**Youngest**")
             st.write("Third sibling")
             st.caption("Generation: 3rd")
@@ -338,7 +394,15 @@ with tab3:
         with st.container(border=True):
             st.markdown("### Elementary")
             st.markdown("---")
-            st.image("resource/vscs.png", width=200)
+
+            st.markdown(
+                """
+                <div style="text-align: center;">
+                    <img src="data:image/jpeg;base64,{}" width="120">
+                </div>
+                """.format(get_base64_image("resource/vscs.png").split(",")[1]),
+                unsafe_allow_html=True
+            )
             st.write("**Villaba South Central School**")
             st.caption("Years: 2009-2016")
             st.caption("Location: Villaba, Leyte")
@@ -348,7 +412,16 @@ with tab3:
         with st.container(border=True):
             st.markdown("### High School")
             st.markdown("---")
-            st.image("resource/pit.png", width=200)
+
+            st.markdown(
+                """
+                <div style="text-align: center;">
+                    <img src="data:image/jpeg;base64,{}" width="120">
+                </div>
+                """.format(get_base64_image("resource/pit.png").split(",")[1]),
+                unsafe_allow_html=True
+            )
+
             st.write("**Palompon Institute of Technology**")
             st.caption("Years: 2017-2022")
             st.caption("Location: Palompon, Leyte")
@@ -358,7 +431,16 @@ with tab3:
         with st.container(border=True):
             st.markdown("### College")
             st.markdown("---")
-            st.image("resource/cit.png", width=200)
+
+            st.markdown(
+                """
+                <div style="text-align: center;">
+                    <img src="data:image/jpeg;base64,{}" width="120">
+                </div>
+                """.format(get_base64_image("resource/cit.png").split(",")[1]),
+                unsafe_allow_html=True
+            )
+
             st.write("**Cebu Institute of Technology**")
             st.caption("Years: 2023-Present")
             st.caption("Course: Computer Science")
