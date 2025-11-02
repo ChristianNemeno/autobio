@@ -134,19 +134,34 @@ col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     with st.container(border=True):
+        st.markdown(
+            """
+            <div style="text-align: center;">
+                <img src="https://cdn.simpleicons.org/steam/1B2838" width="100">
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
         st.markdown("**Gaming**")
         st.caption("Strategy & RPG games")
 
 with col2:
     with st.container(border=True):
+        st.markdown(
+            """
+            <div style="text-align: center;">
+                <img src="https://cdn.simpleicons.org/linux/000000" width="100">
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
         st.markdown("**Coding**")
         st.caption("Building web apps")
 
 with col3:
     with st.container(border=True):
-
-        st.markdown("**Reading**")
         st.markdown(
             """
             <div style="text-align: center;">
@@ -155,11 +170,20 @@ with col3:
             """,
             unsafe_allow_html=True
         )
+        st.markdown("**Reading**")
+
         st.caption("Manhwa , Manga, Western Comics")
 
 with col4:
     with st.container(border=True):
-
+        st.markdown(
+            """
+            <div style="text-align: center;">
+                <img src="https://cdn.simpleicons.org/spotify/1DB954" width="100">
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
         st.markdown("**Music**")
         st.caption("J-Rock & OPM")
 
