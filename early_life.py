@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
 from streamlit_agraph import agraph, Node, Edge, Config
 import base64
 
@@ -231,3 +233,14 @@ with tab1:
 
 
         agraph(nodes=nodes, edges=edges, config=config)
+
+
+with tab2:
+    df = pd.DataFrame(
+        {
+            "lat": [11.004049389099004],
+            "lon": [124.61485378880376]
+        }
+    )
+
+    st.map(df, zoom=14)
