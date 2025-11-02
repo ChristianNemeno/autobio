@@ -9,66 +9,106 @@ def get_base64_image(image_path):
 
 st.header("Early Life")
 
-# Add CSS for scrollable column
+# Add CSS for layout
 st.markdown("""
     <style>
-    /* Fit page content to viewport */
-    section.main {
-        padding-top: 1rem !important;
-        padding-bottom: 0 !important;
+    /* Tab content container - constrain height but allow internal scrolling */
+    .stTabs [data-baseweb="tab-panel"] {
+        max-height: calc(100vh - 15rem) !important;
+        overflow: visible !important;
     }
-    
-    div.stColumn:first-child div[data-testid="stVerticalBlock"] {
-        max-height: calc(100vh - 200px) !important;
+
+    /* Horizontal block (columns container) - fixed height with margin for footer */
+    [data-testid="stHorizontalBlock"] {
+        max-height: calc(100vh - 20rem) !important;
+        margin-bottom: 5rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    /* Each column scrolls independently */
+    [data-testid="stColumn"] {
+        max-height: calc(100vh - 20rem) !important;
         overflow-y: auto !important;
         overflow-x: hidden !important;
-        padding-right: 10px;
+        padding-right: 0.5rem !important;
     }
-    
-    /* Make containers compact and flexbox-like */
-    div.stColumn:first-child div[data-testid="stLayoutWrapper"] {
-        max-width: 250px !important;
-        margin: 0 auto !important;
-    }
-    
-    div.stColumn:first-child div[data-testid="stLayoutWrapper"] div[data-testid="stVerticalBlock"] {
-        max-height: none !important;
-        overflow: visible !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-    
-    div.stColumn:first-child div[data-testid="stVerticalBlock"]::-webkit-scrollbar {
+
+    /* Custom scrollbar styling */
+    [data-testid="stColumn"]::-webkit-scrollbar {
         width: 8px;
     }
-    
-    div.stColumn:first-child div[data-testid="stVerticalBlock"]::-webkit-scrollbar-track {
+
+    [data-testid="stColumn"]::-webkit-scrollbar-track {
         background: #f1f1f1;
         border-radius: 10px;
     }
-    
-    div.stColumn:first-child div[data-testid="stVerticalBlock"]::-webkit-scrollbar-thumb {
+
+    [data-testid="stColumn"]::-webkit-scrollbar-thumb {
         background: #888;
         border-radius: 10px;
     }
-    
-    div.stColumn:first-child div[data-testid="stVerticalBlock"]::-webkit-scrollbar-thumb:hover {
+
+    [data-testid="stColumn"]::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
     
-    /* Make card containers full width with padding */
-    div.stColumn:first-child div[data-testid="stElementContainer"] {
-        width: 100% !important;
-        padding: 1rem !important;
-        box-sizing: border-box !important;
+    /* Center all markdown text in first column */
+    [data-testid="stColumn"]:first-child [data-testid="stMarkdown"] {
+        text-align: center !important;
     }
     
-    /* Center content inside each card */
-    div.stColumn:first-child div[data-testid="stElementContainer"] > div {
+    /* Center the layout wrapper containers that hold images */
+    [data-testid="stColumn"]:first-child [data-testid="stLayoutWrapper"] {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    /* Center vertical blocks inside layout wrappers */
+    [data-testid="stColumn"]:first-child [data-testid="stLayoutWrapper"] [data-testid="stVerticalBlock"] {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Center element containers */
+    [data-testid="stColumn"]:first-child [data-testid="stElementContainer"] {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    /* Center the stImage wrapper */
+    [data-testid="stColumn"]:first-child .stImage {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    /* Center image container */
+    [data-testid="stColumn"]:first-child [data-testid="stImageContainer"] {
+        display: flex !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+    }
+    
+    /* Add simple border to the graph canvas iframe */
+    [data-testid="stCustomComponentV1"] {
+        border: 1px solid #ddd !important;
+        border-radius: 8px !important;
+        width: 100% !important;
+    }
+    
+    /* Make vis-network container responsive */
+    .vis-network {
+        width: 100% !important;
+    }
+    
+    /* Make canvas fill container */
+    .vis-network canvas {
+        width: 100% !important;
+        height: 100% !important;
     }
         
     </style>
@@ -85,37 +125,37 @@ with tab1:
         st.markdown("##### Family Members")
 
         with st.container(border=True):
-            st.image("resource/grandmama.jpg", width=200)
-            st.write("Matriarch of the family")
-            st.caption("Generation: 1st")
+            st.image("resource/grandmama.jpg", width=120)
+            st.write("**Grandma**")
 
         with st.container(border=True):
-            st.image("resource/pops.jpg", width=200)
-            st.write("Patriarch of the family")
+            st.image("resource/pops.jpg", width=120)
+            st.write("**Grandpa**")
 
         with st.container(border=True):
-            st.image("resource/dad.jpg", width=200)
-            st.write("My father")
+            st.image("resource/dad.jpg", width=120)
+            st.write("**Dad**")
 
         with st.container(border=True):
-            st.image("resource/mom.jpg", width=200)
+            st.image("resource/mom.jpg", width=120)
+            st.write("**Mom**")
             st.write("My mother")
 
         with st.container(border=True):
-            st.image("resource/me.jpg", width=200)
-            st.write("Me")
+            st.image("resource/me.jpg", width=120)
+            st.write("**Me**")
 
         with st.container(border=True):
-            st.image("resource/eldest.jpg", width=200)
-            st.write("First sibling")
+            st.image("resource/eldest.jpg", width=120)
+            st.write("**Eldest**")
 
         with st.container(border=True):
-            st.image("resource/middle.jpg", width=200)
-            st.write("Second sibling")
+            st.image("resource/middle.jpg", width=120)
+            st.write("**Middle**")
 
         with st.container(border=True):
-            st.image("resource/youngest.jpg", width=200)
-            st.write("Third sibling")
+            st.image("resource/youngest.jpg", width=120)
+            st.write("**Youngest**")
 
     with col2:
         st.markdown("##### Interactive Family Graph")
@@ -181,8 +221,10 @@ with tab1:
         edges.append( Edge(source="Mom", target="middle") )
 
         graph_height = 550
+        graph_width = 1000
 
-        config = Config(height=graph_height,
+        config = Config(width=graph_width,
+                        height=graph_height,
                         directed=True,
                         physics=False,
                         hierarchical=True,
