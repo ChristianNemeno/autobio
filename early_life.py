@@ -18,7 +18,6 @@ st.markdown("""
         padding-bottom: 0 !important;
     }
     
-    /* Make the first column scrollable with fixed height */
     div.stColumn:first-child div[data-testid="stVerticalBlock"] {
         max-height: calc(100vh - 200px) !important;
         overflow-y: auto !important;
@@ -35,9 +34,11 @@ st.markdown("""
     div.stColumn:first-child div[data-testid="stLayoutWrapper"] div[data-testid="stVerticalBlock"] {
         max-height: none !important;
         overflow: visible !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
     
-    /* Custom scrollbar styling */
     div.stColumn:first-child div[data-testid="stVerticalBlock"]::-webkit-scrollbar {
         width: 8px;
     }
@@ -55,72 +56,66 @@ st.markdown("""
     div.stColumn:first-child div[data-testid="stVerticalBlock"]::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
+    
+    /* Make card containers full width with padding */
+    div.stColumn:first-child div[data-testid="stElementContainer"] {
+        width: 100% !important;
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Center content inside each card */
+    div.stColumn:first-child div[data-testid="stElementContainer"] > div {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+        
     </style>
 """, unsafe_allow_html=True)
 
-# Create tabs for different sections
 tab1, tab2, tab3 = st.tabs(["Family Tree", "Memories", "Timeline"])
 
 with tab1:
     st.subheader("My Family Tree")
 
-    # Create two columns: left for info cards, right for graph
     col1, col2 = st.columns([1, 2])
 
     with col1:
         st.markdown("##### Family Members")
 
-        # Card for Grandparents
         with st.container(border=True):
-            st.markdown("** Grandma**")
-            st.image("resource/grandmama.jpg", width=120)
+            st.image("resource/grandmama.jpg", width=200)
             st.write("Matriarch of the family")
             st.caption("Generation: 1st")
 
         with st.container(border=True):
-            st.markdown("** Grandpa**")
-            st.image("resource/pops.jpg", width=120)
+            st.image("resource/pops.jpg", width=200)
             st.write("Patriarch of the family")
-            st.caption("Generation: 1st")
 
-        # Card for Parents
         with st.container(border=True):
-            st.markdown("** Dad**")
-            st.image("resource/dad.jpg", width=120)
+            st.image("resource/dad.jpg", width=200)
             st.write("My father")
-            st.caption("Generation: 2nd")
 
         with st.container(border=True):
-            st.markdown("** Mom**")
-            st.image("resource/mom.jpg", width=120)
+            st.image("resource/mom.jpg", width=200)
             st.write("My mother")
-            st.caption("Generation: 2nd")
 
-        # Card for Me
         with st.container(border=True):
-            st.markdown("** Me**")
-            st.image("resource/me.jpg", width=120)
+            st.image("resource/me.jpg", width=200)
             st.write("Me")
-            st.caption("Generation: 3rd")
 
-        # Card for Siblings
         with st.container(border=True):
-            st.markdown("** Eldest**")
-            st.image("resource/eldest.jpg", width=120)
+            st.image("resource/eldest.jpg", width=200)
             st.write("First sibling")
-            st.caption("Generation: 3rd")
 
         with st.container(border=True):
-            st.markdown("** Middle**")
-            st.image("resource/middle.jpg", width=120)
+            st.image("resource/middle.jpg", width=200)
             st.write("Second sibling")
-            st.caption("Generation: 3rd")
 
         with st.container(border=True):
-            st.markdown("** Youngest**")
-            st.image("resource/youngest.jpg", width=120)
+            st.image("resource/youngest.jpg", width=200)
             st.write("Third sibling")
-            st.caption("Generation: 3rd")
 
     with col2:
         st.markdown("##### Interactive Family Graph")
@@ -128,7 +123,6 @@ with tab1:
         nodes = []
         edges = []
 
-        # Create the nodes (people)
         nodes.append( Node(id="Grandma",
                            label="Grandma",
                            size=35,
@@ -186,10 +180,7 @@ with tab1:
         edges.append( Edge(source="Mom", target="eldest") )
         edges.append( Edge(source="Mom", target="middle") )
 
-        # Calculate dynamic height based on viewport
-        # Using st.components to inject JavaScript for viewport height would be complex
-        # So we'll use a reasonable fixed height that works well
-        graph_height = 550  # Adjusted to fit within viewport with headers
+        graph_height = 550
 
         config = Config(height=graph_height,
                         directed=True,
@@ -197,5 +188,5 @@ with tab1:
                         hierarchical=True,
                         )
 
-        # Render the graph
+
         agraph(nodes=nodes, edges=edges, config=config)

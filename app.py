@@ -9,17 +9,16 @@ st.set_page_config(
     layout="wide"
 )
 
-# Add CSS to disable scrolling and fix viewport
 st.markdown("""
     <style>
-    /* Disable main app scrolling - target the actual container */
     .stMainBlockContainer.block-container {
         max-height: 100vh !important;
         overflow: hidden !important;
         padding-bottom: 0 !important;
+        padding-top: 4rem !important;
     }
     
-    /* Target the main vertical block */
+    
     .stMainBlockContainer div[data-testid="stVerticalBlock"] {
         max-height: 100vh !important;
         overflow-y: hidden !important;
