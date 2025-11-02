@@ -12,44 +12,9 @@ def get_base64_image(image_path):
 st.divider()
 st.markdown("""
     <style>
-    /* Tab content container - constrain height but allow internal scrolling */
+    /* Add bottom padding to prevent footer overlap */
     .stTabs [data-baseweb="tab-panel"] {
-        max-height: calc(100vh - 15rem) !important;
-        overflow: visible !important;
-    }
-
-    /* Horizontal block (columns container) - fixed height with margin for footer */
-    [data-testid="stHorizontalBlock"] {
-        max-height: calc(100vh - 20rem) !important;
-        margin-bottom: 5rem !important;
-        padding-bottom: 2rem !important;
-    }
-
-    /* Each column scrolls independently */
-    [data-testid="stColumn"] {
-        max-height: calc(100vh - 20rem) !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        padding-right: 0.5rem !important;
-    }
-
-    /* Custom scrollbar styling */
-    [data-testid="stColumn"]::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    [data-testid="stColumn"]::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-    }
-
-    [data-testid="stColumn"]::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 10px;
-    }
-
-    [data-testid="stColumn"]::-webkit-scrollbar-thumb:hover {
-        background: #555;
+        padding-bottom: 4rem !important;
     }
     
     /* Center all markdown text in first column */
@@ -150,6 +115,29 @@ st.markdown("""
         justify-content: center;
     }
     
+    /* Center images in tab3 education section */
+    .stTabs [data-baseweb="tab-panel"] [data-testid="stVerticalBlock"] {
+        text-align: center !important;
+    }
+    
+    .stTabs [data-baseweb="tab-panel"] .stImage {
+        display: inline-block !important;   
+        text-align: center !important;
+    }
+    
+    /* Fixed height for family member containers in Tab 1 */
+    div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] {
+        min-height: 280px !important;
+    }
+    
+    div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"] > div[data-testid="stVerticalBlock"] > div[data-testid="stLayoutWrapper"] > div[data-testid="stVerticalBlock"] {
+        height: 280px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        padding: 1rem !important;
+    }
+    
     /* Left align metric content divs */
     [data-testid="stMetricLabel"] > div,
     [data-testid="stMetricValue"] > div {
@@ -166,47 +154,10 @@ tab1, tab2, tab3 = st.tabs(["Family Tree", "Reside", "Education"])
 with tab1:
     st.subheader("My Family Tree")
 
-    col1, col2 = st.columns([1, 2])
+    st.markdown("---")
+    st.markdown("##### Interactive Family Graph")
 
-    with col1:
-        st.markdown("##### Family Members")
-
-        with st.container(border=True):
-            st.image("resource/grandmama.jpg", width=120)
-            st.write("**Grandma**")
-
-        with st.container(border=True):
-            st.image("resource/pops.jpg", width=120)
-            st.write("**Grandpa**")
-
-        with st.container(border=True):
-            st.image("resource/dad.jpg", width=120)
-            st.write("**Dad**")
-
-        with st.container(border=True):
-            st.image("resource/mom.jpg", width=120)
-            st.write("**Mom**")
-            st.write("My mother")
-
-        with st.container(border=True):
-            st.image("resource/me.jpg", width=120)
-            st.write("**Me**")
-
-        with st.container(border=True):
-            st.image("resource/eldest.jpg", width=120)
-            st.write("**Eldest**")
-
-        with st.container(border=True):
-            st.image("resource/middle.jpg", width=120)
-            st.write("**Middle**")
-
-        with st.container(border=True):
-            st.image("resource/youngest.jpg", width=120)
-            st.write("**Youngest**")
-
-    with col2:
-        st.markdown("##### Interactive Family Graph")
-
+    with st.container(border=True):
         nodes = []
         edges = []
 
@@ -258,7 +209,6 @@ with tab1:
                            shape="circularImage",
                            image=get_base64_image("resource/youngest.jpg")) )
 
-        # Create the edges (relationships)
         edges.append( Edge(source="Grandma", target="Dad") )
         edges.append( Edge(source="Grandpa", target="Dad") )
         edges.append( Edge(source="Mom", target="erika") )
@@ -277,46 +227,122 @@ with tab1:
                         hierarchical=True,
                         )
 
-
         agraph(nodes=nodes, edges=edges, config=config)
+
+    st.markdown("---")
+    st.markdown("##### Family Members")
+
+    st.markdown("###### First Generation")
+    gen1_col1, gen1_col2 = st.columns(2)
+
+    with gen1_col1:
+        with st.container(border=True):
+            st.image("resource/grandmama.jpg", width=120)
+            st.write("**Grandma**")
+            st.write("Matriarch of the family")
+            st.caption("Generation: 1st")
+
+    with gen1_col2:
+        with st.container(border=True):
+            st.image("resource/pops.jpg", width=120)
+            st.write("**Grandpa**")
+            st.write("Patriarch of the family")
+            st.caption("Generation: 1st")
+
+    st.markdown("###### Second Generation")
+    gen2_col1, gen2_col2 = st.columns(2)
+
+    with gen2_col1:
+        with st.container(border=True):
+            st.image("resource/dad.jpg", width=120)
+            st.write("**Dad**")
+            st.write("My father")
+            st.caption("Generation: 2nd")
+
+    with gen2_col2:
+        with st.container(border=True):
+            st.image("resource/mom.jpg", width=120)
+            st.write("**Mom**")
+            st.write("My mother")
+            st.caption("Generation: 2nd")
+
+    st.markdown("###### Third Generation")
+    gen3_col1, gen3_col2, gen3_col3, gen3_col4 = st.columns(4)
+
+    with gen3_col1:
+        with st.container(border=True):
+            st.image("resource/me.jpg", width=120)
+            st.write("**Me**")
+            st.write("Myself")
+            st.caption("Generation: 3rd")
+
+    with gen3_col2:
+        with st.container(border=True):
+            st.image("resource/eldest.jpg", width=120)
+            st.write("**Eldest**")
+            st.write("First sibling")
+            st.caption("Generation: 3rd")
+
+    with gen3_col3:
+        with st.container(border=True):
+            st.image("resource/middle.jpg", width=120)
+            st.write("**Middle**")
+            st.write("Second sibling")
+            st.caption("Generation: 3rd")
+
+    with gen3_col4:
+        with st.container(border=True):
+            st.image("resource/youngest.jpg", width=120)
+            st.write("**Youngest**")
+            st.write("Third sibling")
+            st.caption("Generation: 3rd")
+
 
 
 with tab2:
-    st.subheader("Born in Leyte")
+    st.subheader("A Profile: Born in Leyte")
 
-    col1, col2 = st.columns([1, 1])
+    col1, col2 = st.columns([1, 2])
 
     with col1:
         with st.container(border=True):
+            st.markdown("#### Key Info")
             st.metric("City", "Ormoc")
             st.metric("Province", "Leyte")
             st.metric("Born", "September 4, 2003")
 
+        with st.container(border=True):
+            st.markdown("#### About My Hometown")
+            st.write("Ormoc City is a vibrant coastal city in Leyte, known for its rich culture and beautiful landscapes.")
+            st.caption("Population: ~230,000 residents")
+            st.caption("Known for: Pineapple production & scenic beaches")
+
     with col2:
         with st.container(border=True):
-            st.header("My Birthplace: Ormoc")
+            st.markdown("#### My Birthplace: Ormoc")
             df = pd.DataFrame(
                 {"lat": [11.004049], "lon": [124.614853]}
             )
             st.map(df, zoom=14, use_container_width=True)
+            st.caption("Located in the heart of Leyte province")
+
+
 
 
 with tab3:
     st.subheader("My Education Journey")
 
-    # Three columns for education levels
     col1, col2, col3 = st.columns(3)
 
     with col1:
         with st.container(border=True):
             st.markdown("### Elementary")
             st.markdown("---")
-
             st.image("resource/vscs.png", width=200)
             st.write("**Villaba South Central School**")
             st.caption("Years: 2009-2016")
-            st.caption("Location: Leyte")
-            st.metric("Status", "Completed", "100%")
+            st.caption("Location: Villaba, Leyte")
+            st.caption("Status: Completed")
 
     with col2:
         with st.container(border=True):
@@ -325,8 +351,8 @@ with tab3:
             st.image("resource/pit.png", width=200)
             st.write("**Palompon Institute of Technology**")
             st.caption("Years: 2017-2022")
-            st.caption("Location: Leyte")
-            st.metric("Status", "Completed", "100%")
+            st.caption("Location: Palompon, Leyte")
+            st.caption("Status: Completed")
 
     with col3:
         with st.container(border=True):
@@ -336,10 +362,10 @@ with tab3:
             st.write("**Cebu Institute of Technology**")
             st.caption("Years: 2023-Present")
             st.caption("Course: Computer Science")
-            st.metric("Status", "In Progress", "75%")
+            st.caption("Status: In Progress (Year 3)")
 
     st.markdown("---")
-    st.markdown("##### 📊 Overall Education Progress")
+    st.markdown("##### Overall Education Progress")
 
     with st.container(border=True):
         st.progress(0.75, text="Educational Journey: 75% Complete")
@@ -347,10 +373,10 @@ with tab3:
         prog_col1, prog_col2, prog_col3 = st.columns(3)
 
         with prog_col1:
-            st.metric("Years in School", "16", "+3 years")
+            st.metric("Years in School", "16 years")
 
         with prog_col2:
-            st.metric("Current Level", "College", "Year 3")
+            st.metric("Current Level", "College Year 3")
 
         with prog_col3:
-            st.metric("Expected Graduation", "2025", "1 year remaining")
+            st.metric("Expected Graduation", "2027")

@@ -75,6 +75,23 @@ st.markdown("""
             margin-top: 1rem !important;
             margin-bottom: 1rem !important;
         }
+        
+        /* Add spacing between sections */
+        .stMarkdown h5 {
+            margin-top: 2rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+        
+        /* Add spacing to containers */
+        [data-testid="stVerticalBlock"] > div {
+            margin-bottom: 1.5rem !important;
+        }
+        
+        /* Add spacing to dividers */
+        hr {
+            margin-top: 2.5rem !important;
+            margin-bottom: 2.5rem !important;
+        }
     </style>
     
 """, unsafe_allow_html=True)
@@ -89,3 +106,75 @@ st.write(
         "Hello! I am a computer science student, and I like to build something with 1s and 0s.\n"
 )
 st.write("Feel free to explore the different sections.")
+
+st.divider()
+st.success("Currently a 3rd Year Computer Science student | Available for internship opportunities!")
+
+st.divider()
+st.markdown("#####  Connect with Me")
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.markdown("[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ChristianNemeno)")
+
+with col2:
+    st.markdown("[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/christian-nemeño-94a4972a5)")
+
+with col3:
+    st.markdown("[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](christiannemeno80@gmail.com)")
+
+
+
+st.divider()
+st.markdown("##### ⚡ Interests & Hobbies")
+
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    with st.container(border=True):
+        st.markdown("**Gaming**")
+        st.caption("Strategy & RPG games")
+
+with col2:
+    with st.container(border=True):
+
+        st.markdown("**Coding**")
+        st.caption("Building web apps")
+
+with col3:
+    with st.container(border=True):
+
+        st.markdown("**Reading**")
+        st.caption("Tech & sci-fi books")
+
+with col4:
+    with st.container(border=True):
+
+        st.markdown("**Music**")
+        st.caption("Lo-fi & instrumental")
+
+st.divider()
+st.markdown("##### Recent Achievements")
+
+achievement_col1, achievement_col2, achievement_col3 = st.columns(3)
+
+with achievement_col1:
+    with st.container(border=True):
+        st.markdown("#### Academic Excellence")
+        st.write("**Dean's List**")
+        st.caption("Semester 1-4, GWA 4.5 ++")
+        st.progress(0.60, text="Achievement Level: 60%")
+
+with achievement_col2:
+    with st.container(border=True):
+        st.markdown("#### 💡 Science Quiz bee")
+        st.write("**Division level**")
+        st.caption("Completed: October 2015")
+        st.progress(1.0, text="Achievement Level: 100%")
+
+with achievement_col3:
+    with st.container(border=True):
+        st.markdown("#### DOST JLSS scholar")
+        st.write("**National level**")
+        st.caption("Completed: October 2025")
+        st.progress(1.0, text="Achievement Level: 100%")

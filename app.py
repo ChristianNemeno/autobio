@@ -11,29 +11,10 @@ st.set_page_config(
 
 st.markdown("""
     <style>
-    /* Lock main viewport - no page scrolling */
-    html, body {
-        overflow: hidden !important;
-        height: 100vh !important;
-        max-height: 100vh !important;
-    }
-    
-    section[data-testid="stAppViewContainer"] {
-        overflow: hidden !important;
-        max-height: 100vh !important;
-    }
-    
-    section.main {
-        overflow: hidden !important;
-        max-height: 100vh !important;
-    }
-    
-    /* Main content container - locked height */
+    /* Allow normal scrolling */
     .stMainBlockContainer.block-container {
-        max-height: calc(100vh - 3rem) !important;
-        overflow: hidden !important;
         padding-top: 1rem !important;
-        padding-bottom: 3rem !important;
+        padding-bottom: 4rem !important;
         padding-left: 2rem !important;
         padding-right: 2rem !important;
     }
@@ -105,9 +86,9 @@ st.markdown("""
 
 # pages
 pages = [
-    st.Page("intro.py", title="preface", icon=":material/account_circle:"),
-    st.Page("early_life.py", title="early life", icon=":material/history:"),
-    st.Page("page3.py", title="About me", icon=":material/login:")
+    st.Page("intro.py", title="About me", icon=":material/account_circle:"),
+    st.Page("early_life.py", title="Early life", icon=":material/history:"),
+    st.Page("page3.py", title="Portfolio", icon=":material/login:")
 
 ]
 
