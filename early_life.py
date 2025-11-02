@@ -9,8 +9,7 @@ def get_base64_image(image_path):
         encoded = base64.b64encode(img_file.read()).decode()
     return f"data:image/jpeg;base64,{encoded}"
 
-st.header("Early Life")
-
+st.divider()
 st.markdown("""
     <style>
     /* Tab content container - constrain height but allow internal scrolling */
@@ -111,11 +110,58 @@ st.markdown("""
         width: 100% !important;
         height: 100% !important;
     }
+    
+    /* Align metrics in tab2 to the left - Direct override */
+    /* Remove centering from app.py for metrics */
+    .stMetric,
+    .stMetric * {
+        text-align: left !important;
+    }
+    
+    [data-testid="stMetric"] {
+        align-items: flex-start !important;
+    }
+    
+    [data-testid="stMetricLabel"],
+    [data-testid="stMetricValue"] {
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+    
+    /* Override emotion cache classes */
+    .st-emotion-cache-1p09rwb,
+    .st-emotion-cache-efbu8t,
+    .st-emotion-cache-1q82h82,
+    .st-emotion-cache-0,
+    .st-emotion-cache-10klw3m {
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+    
+    /* Override markdown centering inside metrics */
+    [data-testid="stMetric"] [data-testid="stMarkdownContainer"],
+    [data-testid="stMetric"] [data-testid="stMarkdownContainer"] p {
+        text-align: left !important;
+        justify-content: flex-start !important;
+    }
+    
+    div[data-testid="stImage"] {
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* Left align metric content divs */
+    [data-testid="stMetricLabel"] > div,
+    [data-testid="stMetricValue"] > div {
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
         
     </style>
 """, unsafe_allow_html=True)
 
-tab1, tab2, tab3 = st.tabs(["Family Tree", "Memories", "Timeline"])
+tab1, tab2, tab3 = st.tabs(["Family Tree", "Reside", "Education"])
 
 with tab1:
     st.subheader("My Family Tree")
@@ -236,11 +282,75 @@ with tab1:
 
 
 with tab2:
-    df = pd.DataFrame(
-        {
-            "lat": [11.004049389099004],
-            "lon": [124.61485378880376]
-        }
-    )
+    st.subheader("Born in Leyte")
 
-    st.map(df, zoom=14)
+    col1, col2 = st.columns([1, 1])
+
+    with col1:
+        with st.container(border=True):
+            st.metric("City", "Ormoc")
+            st.metric("Province", "Leyte")
+            st.metric("Born", "September 4, 2003")
+
+    with col2:
+        with st.container(border=True):
+            st.header("My Birthplace: Ormoc")
+            df = pd.DataFrame(
+                {"lat": [11.004049], "lon": [124.614853]}
+            )
+            st.map(df, zoom=14, use_container_width=True)
+
+
+with tab3:
+    st.subheader("My Education Journey")
+
+    # Three columns for education levels
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        with st.container(border=True):
+            st.markdown("### Elementary")
+            st.markdown("---")
+
+            st.image("resource/vscs.png", width=200)
+            st.write("**Villaba South Central School**")
+            st.caption("Years: 2009-2016")
+            st.caption("Location: Leyte")
+            st.metric("Status", "Completed", "100%")
+
+    with col2:
+        with st.container(border=True):
+            st.markdown("### High School")
+            st.markdown("---")
+            st.image("resource/pit.png", width=200)
+            st.write("**Palompon Institute of Technology**")
+            st.caption("Years: 2017-2022")
+            st.caption("Location: Leyte")
+            st.metric("Status", "Completed", "100%")
+
+    with col3:
+        with st.container(border=True):
+            st.markdown("### College")
+            st.markdown("---")
+            st.image("resource/cit.png", width=200)
+            st.write("**Cebu Institute of Technology**")
+            st.caption("Years: 2023-Present")
+            st.caption("Course: Computer Science")
+            st.metric("Status", "In Progress", "75%")
+
+    st.markdown("---")
+    st.markdown("##### 📊 Overall Education Progress")
+
+    with st.container(border=True):
+        st.progress(0.75, text="Educational Journey: 75% Complete")
+
+        prog_col1, prog_col2, prog_col3 = st.columns(3)
+
+        with prog_col1:
+            st.metric("Years in School", "16", "+3 years")
+
+        with prog_col2:
+            st.metric("Current Level", "College", "Year 3")
+
+        with prog_col3:
+            st.metric("Expected Graduation", "2025", "1 year remaining")
