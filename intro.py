@@ -106,6 +106,8 @@ st.write(
         "Hello! I am a computer science student, and I like to build something with 1s and 0s.\n"
 )
 st.write("Feel free to explore the different sections.")
+st.write("Check more top left navigation header.")
+
 
 st.divider()
 st.success("Currently a 3rd Year Computer Science student | Available for internship opportunities!")
